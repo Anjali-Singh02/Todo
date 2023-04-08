@@ -8,7 +8,7 @@ export const TodoList = (props) => {
       <div className="container todoContainer">
         <p>
           <button
-            className="todoBtn py-2 my-2"
+            className="todoBtn"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#collapseWidthExample"
@@ -20,7 +20,7 @@ export const TodoList = (props) => {
         </p>
         <div>
           <div className="collapse" id="collapseWidthExample">
-            <div className="card card-body py-4 my-3">
+            <div className="card card-body">
               <div className="container listContainer ">
                 {props.todos.length === 0
                   ? "No todos to display"

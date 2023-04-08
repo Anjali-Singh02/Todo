@@ -2,7 +2,7 @@
 
 /* *********** AddTodo component style *********** */
 .addTodoContainer {
-    height: 70vh;
+    height: 60vh;
    
 }
 .formContainer {
@@ -37,8 +37,15 @@
 .todoContainer {
     margin: auto;
     width: 70vh;
+    padding-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
 }
 .todoBtn {
+    margin-top: 10%;
+    width: 30%;
     background-color: #003566;
     color: white;
     border-radius:10px;
@@ -54,12 +61,21 @@
 
 }
 .listContainer {
+    padding: 10px;
     margin-top: 20px;
     height: 58vh;
-    overflow: scroll;
-    
+    overflow-y: scroll;
+    background-color: #003566;
+    color: white;
+    border-radius: 5px
   };
 
+  /* ************* TodoItem component ************** */
+    .itemContainer {
+    /* background-color: #003566;
+    color: white; */
+    padding: 10px;
+  }
 /* *********** Features component style *********** */
 .FeaturesContainer {
     background-color: cornsilk;
