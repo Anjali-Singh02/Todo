@@ -1,13 +1,9 @@
 import React from "react";
-
+import "./cssComp/style.css";
 export const Footer = () => {
-  let footer = {
-    position: "absolute",
-    marginTop:"35vh",
-    width:"100%"
-  }
+  
   return (
-    <div className="footer text-center bg-secondary text-white py-4" style={footer}>
+    <div className="footer text-center bg-secondary text-white py-4">
       Copyright &copy; TodoList
     </div>
   );

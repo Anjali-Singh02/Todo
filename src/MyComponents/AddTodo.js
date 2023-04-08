@@ -1,4 +1,9 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
+
 import React, { useState } from 'react';
+import  myImage  from "./logo1.png";
+import "./cssComp/style.css";
+import { PlusOutlined } from '@ant-design/icons';
 
 export const AddTodo = ({addTodo}) => {
   const [title, setTitle] = useState("");
@@ -17,27 +22,33 @@ export const AddTodo = ({addTodo}) => {
       }
   }
 
+ 
   return (
     <>
-      <div className="container my-5">
-        <form onSubmit={add}>
+    <div className="addTodoContainer">
+
+
+     <img src={myImage} alt="My Image"  style={{ display: 'block', margin: '0 auto', width:"20vh"}} />
+      <div className="container formContainer my-5">
+        <form onSubmit={add} className='form'>
           <div className="mb-3">
             <label htmlFor="title" className="form-label">
-              Add Title
+              Task Title
             </label>
             <input type="text" value={title} onChange={(event) => setTitle(event.target.value)} className="form-control" id="addTitle" />
           </div>
           <div className="mb-3">
             <label htmlFor="desc" className="form-label">
-              Description
+             Sub Task
             </label>
             <input type="text" value={desc} onChange={(event) => setDesc(event.target.value)} className="form-control" id="desc" />
           </div>
 
-          <button type="submit" className="btn btn-primary">
-            Add Todo
+          <button type="submit" className="addBtn">
+         <p><PlusOutlined /></p> 
           </button>
         </form>
+      </div>
       </div>
     </>
   );

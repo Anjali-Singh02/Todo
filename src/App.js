@@ -4,7 +4,8 @@ import { TodoList } from "./MyComponents/TodoList";
 import { AddTodo } from "./MyComponents/AddTodo";
 import { Features } from "./MyComponents/Features";
 
-import { Footer } from "./MyComponents/Footer";
+
+// import { Footer } from "./MyComponents/Footer";
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
@@ -52,6 +53,7 @@ function App() {
     <>
       <BrowserRouter>
         <Header title="Todo List" />
+       
         <Routes>
           <Route
             path="/"
@@ -64,7 +66,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

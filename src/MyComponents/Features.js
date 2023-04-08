@@ -1,7 +1,10 @@
-import React from 'react'
+import React from 'react';
+import "./cssComp/style.css";
 
 export const Features = () => {
   return (
-    <div>Features</div>
+    <>
+    <div className='FeaturesContainer'>Features</div>
+    </>
   )
 }

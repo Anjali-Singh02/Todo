@@ -1,30 +1,27 @@
 import React from "react";
 import { TodoItem } from "./TodoItem";
+import "./cssComp/style.css";
 
 export const TodoList = (props) => {
-  let listContainer = {
-    height: "58vh",
-  };
-
   return (
     <>
-      <div className="container">
+      <div className="container todoContainer">
         <p>
           <button
-            className="btn btn-info py-2 my-2"
+            className="todoBtn py-2 my-2"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#collapseWidthExample"
             aria-expanded="false"
             aria-controls="collapseWidthExample"
           >
-            Toggle width collapse
+          Todo List
           </button>
         </p>
         <div>
           <div className="collapse" id="collapseWidthExample">
             <div className="card card-body py-4 my-3">
-              <div className="container overflow-scroll" style={listContainer}>
+              <div className="container listContainer ">
                 {props.todos.length === 0
                   ? "No todos to display"
                   : props.todos.map((todo) => {
