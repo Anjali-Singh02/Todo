@@ -2,7 +2,7 @@
 
 /* *********** AddTodo component style *********** */
 .addTodoContainer {
-    height: 60vh;
+    height: 42vh;
    
 }
 .formContainer {
@@ -26,13 +26,14 @@
     width: 10vh;
     height: 10vh;
     border-radius: 8px;
+    font-size: 50px;
     background-color: aliceblue;
     color: #003566;
     align-items: center;
 }
-.addBtn p {
-    font-size: xx-large;
-}
+
+    
+
 /* *********** TodoList component style *********** */
 .todoContainer {
     margin: auto;
@@ -44,7 +45,6 @@
     
 }
 .todoBtn {
-    margin-top: 10%;
     width: 30%;
     background-color: #003566;
     color: white;
