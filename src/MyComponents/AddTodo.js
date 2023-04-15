@@ -1,23 +1,33 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 
-import React, { useState } from 'react';
+import React from 'react';
 // import  myImage  from "./logo1.png";
 import './cssComp/style.css';
 
-
 export const AddTodo = ({ addTodo, todo, setTodo }) => {
-	const add = (event) => {
+	// updated function name to avoid ambiguity
+	const handleSubmit = (event) => {
 		event.preventDefault();
 		const { id, title, desc } = todo;
-		if (!title || !desc) {
-			alert('Title or Description cannot be blank');
-		} else {
+		// if (!title || !desc) {
+		//	 alert('Title or Description cannot be blank');
+		// } else {
+		// 	 addTodo(value);
+		// 	 setValue({
+		// 		title: '',
+		// 		desc: '',
+		// 	 });
+		// }
+		if (title && desc) {
+			console.log('acceptable');
 			addTodo(id, title, desc);
 			setTodo({
 				title: '',
 				desc: '',
 			});
+			return;
 		}
+		alert('Title or Description cannot be blank');
 	};
 
 	const handleChange = (event) => {
@@ -25,9 +35,6 @@ export const AddTodo = ({ addTodo, todo, setTodo }) => {
 		// console.log(name);
 		setTodo((elem) => {
 			return { ...elem, [name]: event.target.value };
-
-
-			
 		});
 	};
 
@@ -36,7 +43,8 @@ export const AddTodo = ({ addTodo, todo, setTodo }) => {
 			<div className="addTodoContainer">
 				{/* <img src={myImage} alt="My Image"  style={{ display: 'block', margin: '0 auto', width:"20vh"}} /> */}
 				<div className="container formContainer my-5">
-					<form onSubmit={add} className="form">
+					{/* updated with a logical function name */}
+					<form onSubmit={handleSubmit} className="form">
 						<div className="mb-3">
 							<label htmlFor="title" className="form-label">
 								Task Title
