@@ -10,29 +10,39 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { randomNumber } from './MyComponents/lib/lib';
 
 function App() {
-	let initTodo;
-	if (localStorage.getItem('todos') === null) {
-		initTodo = [];
-	} else {
-		initTodo = JSON.parse(localStorage.getItem('todos'));
-	}
+	// let initTodo =[]
+	// if (localStorage.getItem('todos') === null) {
+	// 	initTodo = [];
+	// } else {
+	// 	initTodo = JSON.parse(localStorage.getItem('todos'));
+	// }
+
+	// updated with direct state variable assignment instead of normal variables and conditional if
+	const [todos, setTodos] = useState(
+		JSON.parse(localStorage.getItem('todos')) ?? [],
+	);
+	const [todo, setTodo] = useState({ id: randomNumber, title: '', desc: '' });
+
+	useEffect(() => {
+		localStorage.setItem('todos', JSON.stringify(todos));
+	}, [todos]);
 
 	const onDelete = (todo) => {
-		console.log('Delete', todo);
-		setTodos(
-			todos.filter((e) => {
-				return e !== todo;
-			}),
-		);
+		// console.log('Delete', todo);
+		setTodos((reference) => reference.filter((el) => el !== todo));
 
-		localStorage.setItem('todos', JSON.stringify(todos));
+		// localStorage.setItem('todos', JSON.stringify(todos));
+		// since each time todos is updated, a useEffect to update localstorage is already present in line 27
 	};
+
 	const addTodo = (id, title, desc) => {
-		console.log('I am adding this todo', id, title, desc);
-		console.log(todos);
+		// console.log('I am adding this todo', id, title, desc);
+		// console.log(todos);
+
+		// if item with id already exist then update else add as a new todo item.
 		if (todos.some((elem) => elem.id === id)) {
-			const result = todos.find((elem) => elem.id === id);
-			console.log(result);
+			// const result = todos.find((elem) => elem.id === id);
+			// console.log(result);
 
 			setTodos(
 				todos.map((elem) => {
@@ -47,24 +57,27 @@ function App() {
 				}),
 			);
 		} else {
-			const myTodo = {
-				id: randomNumber,
-				title: title,
-				desc: desc,
-			};
-			setTodos([...todos, myTodo]);
-			// console.log(myTodo);
+			// const myTodo = {
+			// 	id: randomNumber,
+			// 	title: title,
+			// 	desc: desc,
+			// };
+
+			// reduced lines of code and variable space.
+			setTodos((reference) => [
+				...reference,
+				{
+					id: randomNumber,
+					title: title,
+					desc: desc,
+				},
+			]);
 		}
 	};
-	const [todos, setTodos] = useState(initTodo);
-	useEffect(() => {
-		localStorage.setItem('todos', JSON.stringify(todos));
-	}, [todos]);
-
-	const [todo, setTodo] = useState({ id: randomNumber, title: '', desc: '' });
 
 	const onEdit = (value) => {
-		console.log(value);
+		// console.log(value);
+
 		setTodo({ id: value.id, title: value.title, desc: value.desc });
 	};
 
@@ -88,7 +101,8 @@ function App() {
 									onEdit={onEdit}
 								/>
 							</>
-						}></Route>
+						}
+					></Route>
 
 					<Route path="/features" element={<Features />}></Route>
 				</Routes>
