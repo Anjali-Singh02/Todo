@@ -65,7 +65,7 @@ export const AddTodo = ({ addTodo, todo, setTodo }) => {
 						</div>
 
 						<button type="submit" className="addBtn">
-							+
+							Add
 						</button>
 					</form>
 				</div>
