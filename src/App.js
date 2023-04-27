@@ -72,6 +72,7 @@ function App() {
 		<>
 			<BrowserRouter>
 				<Header title="Todo List" />
+
 				<Routes>
 					<Route
 						path="/"
@@ -88,7 +89,8 @@ function App() {
 									onEdit={onEdit}
 								/>
 							</>
-						}></Route>
+						}
+					></Route>
 
 					<Route path="/features" element={<Features />}></Route>
 				</Routes>
